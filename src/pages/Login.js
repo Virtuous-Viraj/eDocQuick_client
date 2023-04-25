@@ -3,7 +3,6 @@ import {Form, Input, Button} from 'antd'
 import { Link , useNavigate} from 'react-router-dom'
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
-import { API_URL } from '../Url';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideLoading, showLoading } from '../redux/reducers/alertsSlice';
 function Login() {
@@ -15,7 +14,7 @@ function Login() {
     try {
       // const {name, email, password} = e
       dispatch(showLoading())
-      const response = await axios.post(`${API_URL}/api/user/login`, values)
+      const response = await axios.post("/api/user/login", values)
       dispatch(hideLoading())
       if(response.data.success)
       {

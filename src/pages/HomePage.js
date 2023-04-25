@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import { API_URL } from '../Url';
 import { useEffect, useState } from 'react'
 import  Layout  from '../components/Layout';
 import { Row, Col } from 'antd';
@@ -15,7 +14,7 @@ function HomePage() {
         // console.log(localStorage.getItem("token"))
         try {
             dispatch(showLoading())
-            const response = await axios.get(`${API_URL}/api/user/get-all-approved-doctors`,{
+            const response = await axios.get("/api/user/get-all-approved-doctors",{
                 headers: {
                   Authorization: "Bearer " + localStorage.getItem("token"),
                 },

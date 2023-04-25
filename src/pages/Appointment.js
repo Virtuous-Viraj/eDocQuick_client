@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import Layout from "../components/Layout";
 import { showLoading, hideLoading } from "../redux/reducers/alertsSlice";
 import axios from "axios";
-import { API_URL } from "../Url";
 import { Table } from "antd";
 import moment from "moment";
 
@@ -13,7 +12,7 @@ function Appointment() {
   const getAppointmentsData = async () => {
     try {
       dispatch(showLoading());
-      const resposne = await axios.get(`${API_URL}/api/user/get-appointments-by-user-id`, {
+      const resposne = await axios.get("/api/user/get-appointments-by-user-id", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
