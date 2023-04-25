@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://edocquick-backend-bk7.onrender.com',
+      target: 'https://edocquick-backend.onrender.com',
       changeOrigin: true,
     })
   );
