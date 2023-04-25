@@ -2,6 +2,7 @@ import  Layout  from '../../components/Layout'
 import React from 'react'
 // import {Form, Input, Button, Row, Col, T} from 'antd'
 import axios from 'axios'
+import { API_URL } from '../../Url'
 import { toast } from 'react-hot-toast'
 import { useDispatch, useSelector } from 'react-redux'
 import { showLoading , hideLoading} from '../../redux/reducers/alertsSlice'
@@ -22,7 +23,7 @@ function Profile() {
         try {
             // const {name, email, password} = e
             dispatch(showLoading())
-            const response = await axios.post("/api/doctor/update-doctor-profile", { ...values, userId: user._id, timings : [
+            const response = await axios.post(`${API_URL}/api/doctor/update-doctor-profile`, { ...values, userId: user._id, timings : [
             moment(values.timings[0]).format("HH:mm"),
             moment(values.timings[1]).format("HH:mm"),
             ] }, {
@@ -55,7 +56,7 @@ function Profile() {
         // console.log("Hello")
         try {
             dispatch(showLoading())
-            const response = await axios.post("/api/doctor/get-doctor-info-by-user-id", {
+            const response = await axios.post(`${API_URL}/api/doctor/get-doctor-info-by-user-id`, {
                 userId : params.userId
 
             },{

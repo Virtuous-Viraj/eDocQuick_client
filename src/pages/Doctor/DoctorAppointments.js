@@ -4,6 +4,7 @@ import Layout from "../../components/Layout";
 import { showLoading, hideLoading } from "../../redux/reducers/alertsSlice";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { API_URL } from "../../Url";
 import { Table } from "antd";
 import moment from "moment";
 
@@ -14,7 +15,7 @@ function DoctorAppointments() {
     try {
       dispatch(showLoading());
       const resposne = await axios.get(
-        "/api/doctor/get-appointments-by-doctor-id",
+        `${API_URL}/api/doctor/get-appointments-by-doctor-id`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -34,7 +35,7 @@ function DoctorAppointments() {
     try {
       dispatch(showLoading());
       const resposne = await axios.post(
-        "/api/doctor/change-appointment-status",
+        `${API_URL}/api/doctor/change-appointment-status`,
         { appointmentId : record._id, status: status },
         {
           headers: {

@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import axios from 'axios'
+import { API_URL } from '../Url'
 import { setUser } from '../redux/reducers/userSlice'
 import { hideLoading, showLoading } from '../redux/reducers/alertsSlice'
 function ProtectedRoute(props) {
@@ -13,7 +14,7 @@ function ProtectedRoute(props) {
         const getUser = async(req, res) => {
                 try {
                     dispatch(showLoading())
-                    const response = await axios.post("/api/user/get-user-info-by-id", {token : localStorage.getItem('token')}, {
+                    const response = await axios.post(`${API_URL}/api/user/get-user-info-by-id`, {token : localStorage.getItem('token')}, {
                         headers : {
                             Authorization : `Bearer ${localStorage.getItem('token')}`
                         }

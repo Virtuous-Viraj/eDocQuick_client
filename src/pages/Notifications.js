@@ -4,6 +4,7 @@ import {Tabs} from 'antd'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { API_URL } from '../Url'
 import { useDispatch } from 'react-redux'
 import { hideLoading, showLoading } from '../redux/reducers/alertsSlice'
 import { toast } from 'react-hot-toast'
@@ -16,7 +17,7 @@ function Notifications() {
         try {
             // const {name, email, password} = e
             dispatch(showLoading())
-            const response = await axios.post("/api/user/mark-as-seen", {userId : user._id} , {
+            const response = await axios.post(`${API_URL}/api/user/mark-as-seen`, {userId : user._id} , {
                 headers: {
                     Authorization : `Bearer ${localStorage.getItem("token")}`
                 }
@@ -42,7 +43,7 @@ function Notifications() {
         try {
             // const {name, email, password} = e
             dispatch(showLoading())
-            const response = await axios.post("/api/user/delete-all", {userId : user._id} , {
+            const response = await axios.post(`${API_URL}/api/user/delete-all`, {userId : user._id} , {
                 headers: {
                     Authorization : `Bearer ${localStorage.getItem("token")}`
                 }

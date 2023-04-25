@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { showLoading, hideLoading } from "../redux/reducers/alertsSlice";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { API_URL } from "../Url";
 import {  useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import bookNowImage from "../images/book_now.png";
@@ -22,7 +23,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "/api/doctor/get-doctor-info-by-id",
+        `${API_URL}/api/doctor/get-doctor-info-by-id`,
         {
           doctorId: params.doctorId,
         },
@@ -39,14 +40,14 @@ function BookAppointment() {
       }
     } catch (error) {
       console.log(error);
-      dispatch(hideLoading());
+      dispatch(hideLoading());2
     }
   };
   const checkAvailability = async () => {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "/api/user/check-booking-availability",
+        `${API_URL}/api/user/check-booking-availability`,
         {
           doctorId: params.doctorId,
           date: date,
@@ -75,7 +76,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "/api/user/book-appointment",
+        `${API_URL}/api/user/book-appointment`,
         {
           doctorId: params.doctorId,
           userId: user._id,

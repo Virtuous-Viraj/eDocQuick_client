@@ -2,6 +2,7 @@ import React from 'react'
 import {Form, Input, Button} from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { API_URL } from '../Url'
 import { toast } from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import { showLoading , hideLoading} from '../redux/reducers/alertsSlice'
@@ -14,7 +15,7 @@ function Register() {
     try {
       // const {name, email, password} = e
       dispatch(showLoading())
-      const response = await axios.post("/api/user/register", values)
+      const response = await axios.post(`${API_URL}/api/user/register`, values)
       dispatch(hideLoading())
       if(response.data.success)
       {
@@ -31,7 +32,7 @@ function Register() {
         toast.error(response.data.error)
       }
     } catch (error) {
-      // console.log(error)
+      console.log(error)
       dispatch(hideLoading())
         toast.error("User Already exists!")
     }
