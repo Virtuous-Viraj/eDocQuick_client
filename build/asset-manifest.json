@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.33c206c4.css",
+    "main.js": "/static/js/main.fbc5ef77.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/book_now.png": "/static/media/book_now.272f892f075507cef73c.png",
+    "index.html": "/index.html",
+    "main.33c206c4.css.map": "/static/css/main.33c206c4.css.map",
+    "main.fbc5ef77.js.map": "/static/js/main.fbc5ef77.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33c206c4.css",
+    "static/js/main.fbc5ef77.js"
+  ]
+}
