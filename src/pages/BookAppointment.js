@@ -40,7 +40,7 @@ function BookAppointment() {
       }
     } catch (error) {
       console.log(error);
-      dispatch(hideLoading());2
+      dispatch(hideLoading());
     }
   };
   const checkAvailability = async () => {
